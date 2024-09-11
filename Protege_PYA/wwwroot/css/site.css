@@ -1,0 +1,511 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+main {
+    padding: 15px; /* Ajusta el padding según sea necesario */
+}
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0; /* Ajusta el margen según sea necesario */
+    padding-bottom: 60px; /* Ajusta el padding para dar espacio al footer */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+
+/* ENCABEZADO */
+.header {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px; /* Ajusta según tus necesidades */
+    margin: 0 auto;
+    padding: 15px; /* Asegura que el contenido no se pegue a los bordes */
+    overflow: hidden;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* MENU NAVEGACIÓN */
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    nav a {
+        text-decoration: none !important;
+        color: black; /* Color negro por defecto */
+        margin: 0 15px;
+        font-size: 16px;
+        padding: 10px 0;
+        position: relative;
+    }
+
+        nav a:hover {
+            color: #003366; /* Color negro al pasar el ratón */
+        }
+
+
+/* ICONO PERFIL */
+.profile-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-icon img {
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+/* Estilos para todos los menús desplegables */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f0f0f0;
+    min-width: 150px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+    .dropdown-menu a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #ddd;
+        }
+
+/* Mostrar el menú desplegable al hacer hover sobre cualquier elemento con clase dropdown */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Estilos para el perfil específicamente (ya aplicados) */
+.profile-menu:hover .dropdown-menu {
+    display: block;
+}
+
+/* Estilos específicos para el menú desplegable de recursos */
+.dropdown-menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+    font-size: 16px;
+    position: relative;
+}
+
+.dropdown-menu-container .dropdown-menu {
+    left: 0; /* Alinear el menú hacia la izquierda */
+    top: 100%;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    border-radius: 4px;
+}
+
+.dropdown-menu-container:hover .dropdown-menu {
+    display: block;
+}
+
+
+.card-custom {
+    transition: transform 0.2s;
+}
+
+    .card-custom:hover {
+        transform: scale(1.05);
+    }
+
+
+.btn-custom {
+    transition: background-color 0.2s, color 0.2s;
+    background-color: #041A68; /* Color de fondo personalizado */
+    color: #ffffff; /* Color del texto */
+}
+
+    .btn-custom:hover {
+        background-color: #ddd; /* Color de fondo personalizado al hacer hover */
+        color: #ffffff; /* Color del texto al hacer hover */
+    }
+
+footer {
+    position: relative;
+    width: 100%;
+    background-color: #f8f9fa; /* Asegura que el fondo del footer sea visible */
+    padding: 20px 0; /* Ajusta el padding según sea necesario */
+    text-align: center;
+    border-top: 1px solid #eaeaea; /* Opcional, agrega una línea superior */
+}
+
+
+/* CARD PROFESIONAL */
+
+.card-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-body {
+    background-color: #f0f0f0; /* Color de fondo claro para la tarjeta */
+}
+
+/* Ajuste automático de la imagen */
+.img-profesional {
+    width: 100%; /* Que ocupe todo el ancho disponible en la tarjeta */
+    height: auto; /* Ajuste automático de la altura para mantener la proporción */
+    object-fit: cover; /* Mantén la proporción de la imagen y recorta si es necesario */
+}
+
+/* Ajusta la tarjeta según el contenido */
+.card {
+    display: block; /* No uses display flex para evitar estiramiento */
+}
+
+.card-body {
+    padding: 10px; /* Espaciado dentro de la tarjeta */
+}
+
+
+.btn-loading {
+    background-color: #6c757d; /* Cambia el color de fondo durante la carga */
+    cursor: not-allowed;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-outline-warning {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+    .btn-outline-warning:hover, .btn-outline-danger:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+
+/*Edir Profesionales*/
+.form {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+    .input:focus {
+        outline: none;
+        border-color: #258cfb;
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    }
+
+/* Estilos de Botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.button-primary {
+    background-color: #041A68;
+    color: white;
+}
+
+    .button-primary:hover {
+        background-color: #0739A3;
+    }
+
+.button-secondary {
+    background-color: #555;
+    color: white;
+}
+
+    .button-secondary:hover {
+        background-color: #777;
+    }
+
+
+/* Imagen y Previsualización */
+.image-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+.image-preview {
+    max-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Interactividad con Transiciones */
+.card-custom {
+    transition: transform 0.2s;
+}
+
+    .card-custom:hover {
+        transform: scale(1.05);
+    }
+
+
+/*RECURSOS*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.video-gallery {
+    margin: 40px auto;
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+    .video-gallery h2 {
+        color: #0d47a1;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+.videos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.video-item {
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .video-item iframe {
+        width: 100%;
+        height: 180px;
+        border: none;
+    }
+
+    .video-item p {
+        color: #fff;
+        padding: 10px;
+        font-size: 14px;
+        background-color: #000;
+        margin: 0;
+        text-align: left;
+    }
+
+
+/*Actividades-R*/
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 2em;
+    color: #003399;
+    margin-bottom: 20px;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.activity-card {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+    .activity-card:hover {
+        transform: scale(1.05);
+    }
+
+    .activity-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .activity-card h3 {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+/*Historias/cuentos*/
+.historias-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.historias-titulo {
+    font-size: 1.8em;
+    color: #0d47a1;
+    margin-bottom: 30px;
+}
+
+.historia {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.historia-imagen {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.historia-titulo {
+    font-size: 1.2em;
+    color: #000;
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.historia-icono {
+    font-size: 1.5em;
+    color: #ff0000;
+}
+
+    .historia-icono:hover {
+        color: #d10000;
+        cursor: pointer;
+    }
+
+@media (max-width: 600px) {
+    .historias-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}

@@ -1,0 +1,208 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - Protege</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content {
+            padding: 40px 20px;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 4px solid #003366;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            align-items: center;
+            padding: 20px;
+        }
+
+            .section img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .section .text {
+                flex: 1;
+                padding: 20px;
+            }
+
+                .section .text h3 {
+                    font-size: 28px;
+                    font-weight: bold;
+                    color: #003366;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                }
+
+                .section .text p {
+                    font-size: 18px;
+                    line-height: 1.6;
+                    color: #555;
+                    margin-bottom: 20px;
+                }
+
+            .section img.right {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .section img.left {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        /* Estilo para pantallas más pequeñas */
+        .section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+            .section img {
+                max-width: 80%;
+                margin: 0 0 20px 0;
+            }
+
+            .section .text {
+                max-width: 100%;
+                padding: 0;
+            }
+
+        /* Estilo para el mensaje final */
+        .final-message {
+            background: linear-gradient(135deg, #003366, #0066cc);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .final-message::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200%;
+                height: 200%;
+                background: rgba(255, 255, 255, 0.1);
+                transform: translate(-50%, -50%) rotate(30deg);
+                border-radius: 50%;
+                z-index: 0;
+            }
+
+            .final-message h3 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                z-index: 1;
+            }
+
+            .final-message p {
+                font-size: 20px;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                z-index: 1;
+            }
+    </style>
+</head>
+<body>
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <h2>CONOZCAMOS MÁS SOBRE EL MALTRATO Y ABUSO</h2>
+
+        <div class="section">
+            <img src="~/img/ini1.jpeg" alt="Descripción de la imagen 1" class="left">
+            <div class="text">
+                <h3>¿Qué es el maltrato y abuso?</h3>
+                <p>El maltrato y abuso son comportamientos que causan daño físico, emocional o sexual a una persona. Pueden ser perpetrados por personas que deberían ser figuras de confianza, como familiares, amigos o autoridades. Estos comportamientos pueden tener graves consecuencias para la salud y el bienestar de la víctima.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text">
+                <h3>Tipos de maltrato y abuso</h3>
+                <p>Existen diferentes tipos de maltrato y abuso, incluyendo abuso físico, emocional, sexual y negligencia. El abuso físico incluye golpes, empujones y quemaduras, mientras que el abuso emocional incluye insultos, humillaciones y amenazas. El abuso sexual incluye tocamientos, acoso y violación, y la negligencia incluye descuido, abandono y falta de cuidado.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text">
+                <h3>Consecuencias del maltrato y abuso</h3>
+                <p>El maltrato y abuso pueden tener graves consecuencias para la salud y el bienestar de la víctima. Pueden causar daño físico y emocional, problemas de salud mental como depresión, ansiedad y estrés postraumático, y dificultades en las relaciones interpersonales. Además, pueden aumentar el riesgo de revictimización.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text">
+                <h3>Señales de alerta</h3>
+                <p>Es importante estar atento a las señales de alerta que pueden indicar que alguien está sufriendo maltrato o abuso. Estas señales incluyen cambios en el comportamiento o la apariencia, lesiones o marcas sin explicación, retirada social o aislamiento, problemas de salud mental y comportamiento agresivo o pasivo.</p>
+            </div>
+            <img src="~/img/ini2.jpeg" alt="Descripción de la imagen 4" class="right">
+        </div>
+
+        <div class="section">
+            <div class="text">
+                <h3>¿Qué hacer si sospechas de maltrato o abuso?</h3>
+                <p>Si sospechas que alguien está sufriendo maltrato o abuso, es importante actuar con rapidez y cuidado. Debes escuchar y creer a la víctima, ofrecer apoyo y protección, informar a las autoridades competentes y buscar ayuda profesional para la víctima.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="text">
+                <h3>Recursos y apoyo</h3>
+                <p>Existen recursos y apoyo disponibles para las víctimas de maltrato y abuso. Estos incluyen líneas de ayuda y apoyo, organizaciones que brindan asistencia a víctimas de maltrato y abuso, servicios de salud mental y apoyo emocional, y grupos de apoyo para víctimas y familiares.</p>
+            </div>
+        </div>
+
+        <!-- Mensaje final -->
+        <div class="final-message">
+
+            <p>Si estás pasando por una situación de maltrato o abuso, queremos que sepas que no estás solo. Hay personas que se preocupan por ti y quieren ayudarte. No es tu culpa lo que está sucediendo, y no mereces ser tratado de esta manera. Tienes derecho a vivir una vida libre de violencia y abuso.</p>
+            <p>Aquí encontrarás un espacio seguro y confidencial para compartir tus sentimientos y experiencias. Nuestro equipo de especialistas en salud mental y apoyo emocional están aquí para escucharte y ayudarte en cada paso del camino.</p>
+            <p>Recuerda que eres fuerte y capaz de superar esta situación. No tienes que enfrentar esto solo. Estamos aquí para apoyarte y ayudarte a encontrar la fuerza y la resiliencia para seguir adelante.</p>
+        </div>
+    </div>
+</body>
+</html>

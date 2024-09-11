@@ -1,0 +1,174 @@
+﻿@model Protege_PYA.Models.Usuario
+
+@{
+    ViewData["Title"] = "CrearProfesional";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Profesional</title>
+
+    <!-- Enlaces de Bootstrap, FontAwesome, Flatpickr y CSS personalizado -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+            transition: transform 0.3s ease;
+        }
+
+            .form-container:hover {
+                transform: translateY(-5px);
+            }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 14px;
+            border: 1px solid #ced4da;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+            }
+
+        .btn-custom {
+            background-color: #003366; /* Cambia este valor para el color de fondo */
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white; /* Color del texto */
+            background: linear-gradient(90deg, #28a745 0%, #218838 100%); /* Efecto de degradado */
+            transition: transform 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                transform: scale(1.05);
+                background: linear-gradient(90deg, #218838 0%, #28a745 100%); /* Efecto al hacer hover */
+            }
+
+        .nav-tabs .nav-link.active {
+            background-color: #fff;
+            border-bottom-color: transparent;
+            font-weight: bold;
+        }
+
+        .back-to-list {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+            .back-to-list a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .back-to-list a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="container form-container">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("CrearInvitado", "Autentication")">Registrar Invitado</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Registrar Profesional</a>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4">
+            <div class="tab-pane fade show active" id="profesional-tab">
+                <form asp-action="CrearProfesional" method="post">
+                    <div class="form-group">
+                        <label asp-for="Nombre"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input asp-for="Nombre" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Apellido"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                            </div>
+                            <input asp-for="Apellido" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Documento"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div>
+                            <input asp-for="Documento" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FechaNacimiento"></label>
+                        <input asp-for="FechaNacimiento" class="form-control" id="fechaNacimiento" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Usuario1">Usuario</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input asp-for="Usuario1" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Pass">Contraseña</label>
+                        <input asp-for="Pass" type="password" class="form-control" />
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="terms">
+                        <label class="form-check-label" for="terms">Acepto los términos y condiciones de uso.</label>
+                    </div>
+                    <button type="submit">Registrar Profesional</button>
+                </form>
+                <div class="back-to-list">
+                    ¿Tienes una cuenta? <a href="@Url.Action("Index", "Autentication")">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap, jQuery y Flatpickr -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#fechaNacimiento", {
+            dateFormat: "d/m/Y"
+        });
+    </script>
+
+</body>
+</html>

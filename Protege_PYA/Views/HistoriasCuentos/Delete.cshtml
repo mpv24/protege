@@ -1,0 +1,60 @@
+﻿@model Protege_PYA.Models.HistoriasCuento
+
+@{
+    ViewData["Title"] = "Eliminar Historia/Cuento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h2 class="text-danger font-weight-bold mb-4 text-center">Eliminar Historia o Cuento</h2>
+
+            <div class="alert alert-warning text-center">
+                <h4 class="alert-heading">¿Estás seguro de que quieres eliminar esta historia/cuento?</h4>
+                <p>Esta acción no se puede deshacer.</p>
+            </div>
+
+            <!-- Detalles de la historia -->
+            <div class="card mb-4 shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title text-primary font-weight-bold">Detalles de la Historia/Cuento</h5>
+                    <hr />
+
+                    <dl class="row">
+                        <dt class="col-sm-3 font-weight-bold">Título:</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Titulo)</dd>
+
+                        <dt class="col-sm-3 font-weight-bold">Autor:</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Autor)</dd>
+
+                        <dt class="col-sm-3 font-weight-bold">Descripción:</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Descripcion)</dd>
+
+                        <dt class="col-sm-3 font-weight-bold">Imagen URL:</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Imagen)</dd>
+
+                        <dt class="col-sm-3 font-weight-bold">Historia URL:</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Url)</dd>
+
+                        <dt class="col-sm-3 font-weight-bold">Formato Imagen:</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.FormatoImagen)</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Botones de confirmación -->
+            <form asp-action="Delete" class="text-center">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger rounded-pill px-4">Eliminar</button>
+                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4 ml-2">Volver al listado</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
