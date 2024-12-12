@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Protege_PYA.Models.Actividade>
+
+@{
+    ViewData["Title"] = "Actividades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center display-4 mb-4">ACTIVIDADES</h1>
+    <hr class="my-4">
+
+    <div class="text-center mb-4">
+        <a asp-action="Create" class="btn btn-primary btn-lg rounded-pill px-5 py-2" style="background-color: #003366;">
+            <i class="fas fa-plus-circle"></i> Crear Actividad
+        </a>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@item.Nombre</h5>
+                        <p class="card-text text-muted">@item.Descripcion</p>
+                        <p class="card-text"><strong>URL:</strong> <a href="@item.Url" target="_blank">@item.Url</a></p>
+                    </div>
+                    <div class="card-footer text-center bg-white border-0">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary rounded-pill me-2">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger rounded-pill">
+                            <i class="fas fa-trash-alt"></i> Eliminar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

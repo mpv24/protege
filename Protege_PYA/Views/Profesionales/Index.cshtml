@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Protege_PYA.Models.Profesionale>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="display-4 text-center mt-4">PROFESIONALES</h4>
+<hr class="my-4">
+
+<p class="text-center">
+    <a asp-action="Create" class="btn btn-primary btn-lg rounded-pill px-4 py-2" style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);">
+        <i class="fas fa-user-plus"></i> Crear Nuevo Profesional
+    </a>
+</p>
+
+<div class="container mt-4">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 rounded-lg">
+                    @if (item.Imagen != null && item.Imagen.Length > 0)
+                    {
+                        <img src="@Url.Action("GetImage", "Profesionales", new { id = item.Id })" class="card-img-top rounded-top img-profesional" alt="Imagen de @item.Nombre">
+                    }
+                    else
+                    {
+                        <img src="@Url.Content("~/img/default.png")" class="card-img-top rounded-top img-profesional" alt="Imagen por defecto">
+                    }
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title font-weight-bold text-primary">@item.Nombre @item.Apellido</h5>
+                        <p class="card-text"><strong>Especialidad:</strong> @item.Especialidad</p>
+                        <p class="card-text"><strong>Información:</strong> @item.Informacion</p>
+                        <div class="d-flex justify-content-between mt-3">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm rounded-pill">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a asp-action="SolicitarAsesoria" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm rounded-pill">
+                                <i class="fas fa-handshake"></i> Solicitar Asesoría
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm rounded-pill">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

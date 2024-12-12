@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Protege_PYA.Models.Evento>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                title: '¡Éxito!',
+                text: '@TempData["AlertMessage"]',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+        });
+    </script>
+}
+
+<h4 class="display-4 text-center mt-4">EVENTOS</h4>
+<hr class="my-4">
+
+<div class="text-center">
+    <div class="btn btn-primary btn-lg rounded-pill px-4 py-2" style="margin-top: 20px; background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);">
+        <a onclick="showInPopup('@Url.Action("Create", "Eventos", new { id = 0 }, Context.Request.Scheme)' , '')">
+            <i class="oi oi-plus text-white"></i> Agregar un evento
+        </a>
+    </div>
+</div>
+<br>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <input type="text" id="search" class="form-control" placeholder="Buscar eventos...">
+    </div>
+</div>
+
+<div id="eventoContainer" class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4 evento-card">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-success titulo">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                    <p class="card-text fecha"><strong>Fecha:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                    <p class="card-text profesional"><strong>Profesional:</strong> @Html.DisplayFor(modelItem => item.Profesional.Nombre)</p>
+                    <p class="card-text usuario"><strong>Usuario:</strong> @Html.DisplayFor(modelItem => item.Usuario.Nombre)</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a onclick="showInPopup('@Url.Action("Edit", "Eventos", new { id = item.Id }, Context.Request.Scheme)', '')" class="btn btn-outline-primary btn-sm rounded-pill">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+                    <button data-id="@item.Id" class="btn btn-outline-danger btn-sm rounded-pill deleteItem" data-bs-toggle="modal" data-bs-target="#deleteDialog">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<partial name="_MostrarModal" />
+<partial name="_ModalEliminar" />
+
+@section Scripts {
+    <script src="~/js/showmodal.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        document.getElementById('search').addEventListener('keyup', function () {
+            var searchText = this.value.toLowerCase();
+            var cards = document.querySelectorAll('.evento-card');
+
+            cards.forEach(function (card) {
+                var titulo = card.querySelector('.titulo').textContent.toLowerCase();
+                var fecha = card.querySelector('.fecha').textContent.toLowerCase();
+                var profesional = card.querySelector('.profesional').textContent.toLowerCase();
+                var usuario = card.querySelector('.usuario').textContent.toLowerCase();
+
+                if (titulo.includes(searchText) || fecha.includes(searchText) || profesional.includes(searchText) || usuario.includes(searchText)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <script>
+        sc_deleteDialog.openModal('deleteItem', true, 'btnYesDelete', '/Eventos/Delete/', false);
+    </script>
+}

@@ -1,0 +1,78 @@
+﻿@model Protege_PYA.Models.Profesionale
+
+@{
+    ViewData["Title"] = "Editar Profesional";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="card">
+        <h1 class="card-title">Editar Profesional</h1>
+
+        <form asp-action="Edit" enctype="multipart/form-data" class="form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Nombre" class="label">Nombre</label>
+                <input asp-for="Nombre" class="input" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Apellido" class="label">Apellido</label>
+                <input asp-for="Apellido" class="input" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Especialidad" class="label">Especialidad</label>
+                <input asp-for="Especialidad" class="input" />
+                <span asp-validation-for="Especialidad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Informacion" class="label">Información</label>
+                <input asp-for="Informacion" class="input" />
+                <span asp-validation-for="Informacion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Imagen" class="label">Imagen</label>
+                <input type="file" asp-for="Imagen" class="input" />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>
+
+            @if (Model.Imagen != null)
+            {
+                <div class="form-group">
+                    <p class="image-label">Imagen Actual:</p>
+                    <img src="data:@Model.ImagenMimeType;base64,@Convert.ToBase64String(Model.Imagen)" alt="Imagen actual" class="image-preview" />
+                </div>
+            }
+
+            <div class="button-group">
+                <button type="submit" class="button button-primary">Guardar</button>
+                <a asp-action="Index" class="button button-secondary">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Ejemplo de script para interactividad en botones
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'scale(1.05)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+}

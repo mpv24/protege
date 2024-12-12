@@ -1,0 +1,75 @@
+﻿@model Protege_PYA.Models.HistoriasCuento
+
+@{
+    ViewData["Title"] = "Editar Historia/Cuento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="card-header text-center" style="background-color: #003366;">
+                    <h4 class="text-white">Editar Historia/Cuento</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Titulo" class="form-label font-weight-bold"></label>
+                            <input asp-for="Titulo" class="form-control" placeholder="Ingrese el título de la historia/cuento" />
+                            <span asp-validation-for="Titulo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Autor" class="form-label font-weight-bold"></label>
+                            <input asp-for="Autor" class="form-control" placeholder="Ingrese el autor" />
+                            <span asp-validation-for="Autor" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Descripcion" class="form-label font-weight-bold"></label>
+                            <textarea asp-for="Descripcion" class="form-control" rows="4" placeholder="Ingrese la descripción"></textarea>
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Imagen" class="form-label font-weight-bold"></label>
+                            <input asp-for="Imagen" type="file" class="form-control" />
+                            <span asp-validation-for="Imagen" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Url" class="form-label font-weight-bold"></label>
+                            <input asp-for="Url" class="form-control" placeholder="Ingrese la URL" />
+                            <span asp-validation-for="Url" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="FormatoImagen" class="form-label font-weight-bold"></label>
+                            <input asp-for="FormatoImagen" class="form-control" placeholder="Ingrese el formato de la imagen" />
+                            <span asp-validation-for="FormatoImagen" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary rounded-pill py-2" style="background-color: #003366;">
+                                <i class="fas fa-save"></i> Guardar Cambios
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary rounded-pill py-2">
+                                <i class="fas fa-arrow-left"></i> Volver a la lista
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

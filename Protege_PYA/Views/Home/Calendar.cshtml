@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Calendar";
+}
+
+<h3 class="display-4 text-center mt-4">CALENDARIO</h3>
+<hr class="my-4">
+
+<div id="calendar"></div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth', // Vista inicial (mes)
+                locale: 'es', // Idioma (español)
+                timeZone: 'local', // Zona horaria local
+
+                // Personalización del encabezado
+                headerToolbar: {
+                    left: 'prev,next today', // Botones en la parte izquierda
+                    center: 'title', // Título en el centro
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' // Botones en la parte derecha
+                },
+
+                // Cargar los eventos desde ViewBag.Eventos
+                events: @Html.Raw(ViewBag.Eventos),
+
+                // Mostrar tanto la hora como el título en vistas de día y semana
+                views: {
+                    timeGridWeek: { // Vista de semana
+                        slotLabelFormat: { hour: 'numeric', minute: '2-digit', hour12: false }, // Formato de hora 24h
+                        eventTimeFormat: { hour: 'numeric', minute: '2-digit', hour12: false } // Formato de evento 24h
+                    },
+                    timeGridDay: { // Vista de día
+                        slotLabelFormat: { hour: 'numeric', minute: '2-digit', hour12: false }, // Formato de hora 24h
+                        eventTimeFormat: { hour: 'numeric', minute: '2-digit', hour12: false } // Formato de evento 24h
+                    }
+                },
+
+                // Mostrar el título y la hora en cada evento
+                eventContent: function (info) {
+                    // Crear el título del evento
+                    var title = document.createElement('div');
+                    title.classList.add('fc-event-title');
+                    title.innerText = info.event.title;
+
+                    // Crear la hora del evento
+                    var time = document.createElement('div');
+                    time.classList.add('fc-event-time');
+                    time.innerText = info.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                    // Contenedor del evento
+                    var container = document.createElement('div');
+                    container.classList.add('fc-event-container');
+                    container.appendChild(time); // Agregar la hora
+                    container.appendChild(title); // Agregar el título
+
+                    return { domNodes: [container] };
+                },
+
+                // Opciones de colores para los eventos
+                eventColor: '#378006', // Color de fondo de los eventos
+                eventTextColor: '#ffffff', // Color del texto
+
+                // Opciones de interacción
+                editable: true, // Permitir la edición de eventos (arrastrar y soltar)
+                selectable: true, // Permitir selección de celdas
+                selectHelper: true // Mostrar una sombra mientras se selecciona
+            });
+
+            calendar.render();
+        });
+    </script>
+}
